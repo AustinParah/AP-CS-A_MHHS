@@ -25,7 +25,7 @@ public class App {
     } catch (FileNotFoundException e) {
       System.out.println("File Not Found");
       return;
-    } catch(IOException e){
+    } catch (IOException e) {
       System.out.println("Generic IO exeption");
     }
 
@@ -35,19 +35,10 @@ public class App {
 
   }
 
-  public static void initSacnner() {
-    try {
-      f = new File("./main/java/lable/addresses.txt");
-      SCN = new Scanner(f);
-    } catch (FileNotFoundException e) {
-      System.out.println("File Not Found");
-    }
-  }
-
   public static void onLine(String line) {
-    for(String content : line.split("  ")){
-      if(!content.equals("")){ 
-        if(content.startsWith(" ")){
+    for (String content : line.split("  ")) {
+      if (!content.equals("")) {
+        if (content.startsWith(" ")) {
           content = content.substring(1);
         }
         System.out.println(content);
@@ -57,4 +48,5 @@ public class App {
     System.out.println();
     pw.println("\n");
   }
+
 }
