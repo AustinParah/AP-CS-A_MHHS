@@ -20,7 +20,7 @@ public class Main {
         // this is where the buisness logic goes
         return;
       }
-      System.out.println("You seem to have entered an invalid ID - try again");
+      System.out.println("You seem to have entered an invalid username or password - try again");
       strikes++;
     }
     System.out.println("I dont think your an employee here");
@@ -28,9 +28,10 @@ public class Main {
   }
 
   public static Boolean checkEmployee(Scanner SCN){ 
-    String ID = Prompt("Enter your ID", SCN);
+    String USER = Prompt("Enter your username", SCN);
+    String PASS= Prompt("Enter your password", SCN);
     for(Employee e : employeeList){
-      if(ID.equals((e.idNumber))){
+      if(USER.equals(e.userName) && PASS.equals(e.password))){
         System.out.println("Welcome " + e.name);
         return true;
       }
@@ -47,9 +48,13 @@ public class Main {
   public static class Employee{
         String name;
         String idNumber;
-        public Employee(String name, String idNumber){
+        String userName;
+        String password;
+        public Employee(String name, String idNumber, String userName, String password){
             this.name = name;
             this.idNumber = idNumber;
+            this.userName = userName;
+            this.password = password;
         }
     }
 }
